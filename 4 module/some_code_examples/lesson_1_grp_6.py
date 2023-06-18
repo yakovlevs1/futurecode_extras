@@ -26,11 +26,13 @@ font_for_textbox = tk.font.Font(
 
 counter = 0
 
+
 def click_button():
     global counter
     counter += 1
-    #print("Кнопка нажата {} раз".format(counter))
+    # print("Кнопка нажата {} раз".format(counter))
     print(state_of_checkbox.get())
+
 
 def click_button2():
     global counter
@@ -39,13 +41,12 @@ def click_button2():
     lbl.pack()
 
 
-
 def log_click():
     auth = dict()
     auth["admin123"] = "1"
     auth["user1"] = "2"
     auth["guestgg"] = "3"
-    
+
     login_from_entry = login_entry.get()
     psw_from_entry = psw_entry.get()
 
@@ -70,7 +71,16 @@ label1.pack(padx=20, pady=20)
 # label1.place(x=100, y=100)
 # label1.grid(row=0, column=0)
 
-textbox = tk.Text(root, height=2, width=20, font=font_for_textbox, fg="blue", bg="red", selectbackground="blue", selectforeground="red")
+textbox = tk.Text(
+    root,
+    height=2,
+    width=20,
+    font=font_for_textbox,
+    fg="blue",
+    bg="red",
+    selectbackground="blue",
+    selectforeground="red",
+)
 textbox.pack(padx=20, pady=10)
 # textbox.focus()
 
@@ -104,7 +114,7 @@ my_button = tk.Button(
     activeforeground="red",
     command=click_button,
 )
-my_button.pack(padx=20, pady=10)
+my_button.pack(padx=100, pady=10, fill="x")
 
 
 log_button = tk.Button(
@@ -120,6 +130,29 @@ state_of_checkbox = tk.BooleanVar()
 
 checkbox = tk.Checkbutton(root, text="Запомнить меня", variable=state_of_checkbox)
 checkbox.pack()
+
+
+def print_radio():
+    print(var_for_radio.get())
+
+
+var_for_radio = tk.IntVar()
+radio1 = tk.Radiobutton(
+    root,
+    text="Male",
+    variable=var_for_radio,
+    value=1,
+    command=print_radio,
+)
+radio1.pack()
+radio2 = tk.Radiobutton(
+    root,
+    text="Female",
+    variable=var_for_radio,
+    value=0,
+    command=print_radio,
+)
+radio2.pack()
 
 
 root.protocol("WM_DELETE_WINDOW", on_closing)

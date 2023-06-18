@@ -50,7 +50,7 @@ class MyGUI:
         print("The button is clicked!")
         print(self.check_state.get())
         if self.check_state.get() == 1:
-            print(self.textbox.get("1.0", tk.END))w
+            print(self.textbox.get("1.0", tk.END))
             messagebox.showinfo(title="Messagebox", message=self.textbox.get("1.0", tk.END))
         else:
             messagebox.showwarning(title="Messagebox", message="Checkbox is unchecked")
